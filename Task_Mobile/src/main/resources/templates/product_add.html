@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<div th:if="${idu}" class="alert alert-warning text-right">
+
+  <a th:href="@{/logout}"><i class="bi bi-arrow-bar-left"> Logout ( [[${idu}]] )</i></a>
+</div>
+</head>
+<body>
+<style>
+  .formcenter{
+    margin-left: 500px;
+  }
+</style>
+<div style="height: 200px;background-color: lightgrey" class="container-fluid">
+  <p class="display-2"> Products</p>
+  <p>Add Products</p>
+</div>
+
+<div class="container-fluid ">
+  </br>
+  <div style="width: 70%; align-content: center"><span> Add New Product</span>
+    <hr/>
+  </div>
+  <div>
+    <div class="formcenter">
+    <form th:action="@{/products/add}" method="post" th:object="${product}" style="max-width: 500px;">
+      <div class="border border-secondary rounded p-3">
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label"> ProductName</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" required maxlength="45"
+                   th:field="*{product_name}">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label"> Unit Price</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control" th:field="*{price}" required min="0">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label"> Units In Stock</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control" th:field="*{stock}" required min="1">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label"> Description</label>
+          <div class="col-sm-8">
+
+            <textarea th:field="*{description}" class="form-control" required></textarea>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label"> Manufacturer</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" th:field="*{manufacturer}">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label"> Category</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" th:field="*{category}">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label"> Condition</label>
+          <div class="col-sm-8">
+            <input type="radio" name="condition" value="1" th:field="*{condition_id}">
+            <label>New</label>
+            <input type="radio" name="condition" value="2" th:field="*{condition_id}">
+            <label>Old</label>
+            <input type="radio" name="condition" value="3" th:field="*{condition_id}">
+            <label>Refurbished</label>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label"> Product Image File</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" th:field="*{photo}">
+          </div>
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-primary m-2"> Add</button>
+          <button type="reset" class="btn btn-danger m-2">Clear</button>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

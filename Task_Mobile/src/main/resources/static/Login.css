@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.all_page_login {
+  width: 100%;
+  height: auto;
+}
+.head_page_login {
+  height: 120px;
+  font-size: 40px;
+  line-height: 120px;
+  margin: 0 0 40px 0;
+  background-color: rgb(222, 222, 222);
+}
+.head_title {
+  width: 90%;
+  margin: 0 5%;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
